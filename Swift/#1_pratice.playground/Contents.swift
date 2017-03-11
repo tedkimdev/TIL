@@ -2,7 +2,6 @@
 
 import UIKit
 
-
 // collection
 var set: Set<String> = ["미국", "캐나다"]
 
@@ -109,31 +108,32 @@ calculator2.divide()
 
 
 // #3 Diamond (repetition)
-//					x y
-// 00100	  0 0
-// 01110		0 1
-// 11111		0 2
-// 01110		0	3
-// 00100		0	4
-
-let num = 3
-var result = ""
-for i in 1...(num * 2 - 1) {
-  for j in 1...(num * 2 - 1) {
-    if i <= num {
-      if j > num - i && j < num + i {
-        result += "1"
+// 00100
+// 01110
+// 11111
+// 01110
+// 00100
+func printDiamond(_ number: Int) {
+  var result = ""
+  for i in 1...(number * 2 - 1) {
+    for j in 1...(number * 2 - 1) {
+      if i <= number {
+        if j > number - i && j < number + i {
+          result += "1"
+        } else {
+          result += "0"
+        }
       } else {
-        result += "0"
-      }
-    } else {
-      if j > i - num && j < num * 3 - i {
-        result += "1"
-      } else {
-        result += "0"
+        if j > i - number && j < number * 3 - i {
+          result += "1"
+        } else {
+          result += "0"
+        }
       }
     }
+    print(result)
+    result = ""
   }
-  print(result)
-  result = ""
 }
+
+printDiamond(3)
