@@ -125,8 +125,7 @@ class TableViewController: UITableViewController {
       let detailViewController: DetailViewController = segue.destination as! DetailViewController
       if let indexPath = tableView.indexPathForSelectedRow {
         let article = controller.object(at: indexPath)
-        detailViewController.titleText = article.title
-        detailViewController.contentText = article.content
+        detailViewController.article = article
       }
     }
   }
@@ -151,6 +150,12 @@ extension TableViewController: NSFetchedResultsControllerDelegate {
     case .insert:
       if let indexPath = newIndexPath {
         tableView.insertRows(at: [indexPath], with: .fade)
+      }
+      break
+      
+    case .delete:
+      if let indexPath = indexPath {
+        tableView.deleteRows(at: [indexPath], with: .fade)
       }
       break
       
