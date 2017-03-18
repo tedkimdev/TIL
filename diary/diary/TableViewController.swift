@@ -159,6 +159,12 @@ extension TableViewController: NSFetchedResultsControllerDelegate {
       }
       break
       
+    case .update:
+      if let indexPath = indexPath {
+        tableView.reloadRows(at: [indexPath], with: .none)
+      }
+      break
+      
     default:
       break
     }

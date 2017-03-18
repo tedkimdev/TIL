@@ -80,11 +80,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7va-cY-gzZ" id="3nR-ub-y9U">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cgR-6p-H7G">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="103"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="103.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -126,7 +126,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIs-O6-L6r">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WEs-uG-fU2">
+                                <rect key="frame" x="16" y="81" width="343" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIs-O6-L6r">
                                 <rect key="frame" x="16" y="84" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="n7r-za-oNX"/>
@@ -135,16 +142,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="San-Fv-IFh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="San-Fv-IFh">
                                 <rect key="frame" x="16" y="132" width="343" height="99"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Z-qt-Jw7">
-                                <rect key="frame" x="16" y="617" width="343" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Z-qt-Jw7">
+                                <rect key="frame" x="16" y="617" width="343" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="iDn-tB-dHh"/>
+                                </constraints>
                                 <state key="normal" title="삭제하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -152,20 +161,54 @@
                                     <action selector="deleteButtonPressed:" destination="HIJ-kp-e05" eventType="touchUpInside" id="BLl-Gp-jdg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4b-e9-uED">
+                                <rect key="frame" x="16" y="565" width="343" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6vh-DV-lrX"/>
+                                </constraints>
+                                <state key="normal" title="수정하기"/>
+                                <connections>
+                                    <action selector="editButtonPressed:" destination="HIJ-kp-e05" eventType="touchUpInside" id="BEe-4T-zrk"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="수정하기 누르면 Label 숨기고, TextFiled,TextView 보여주도록 변경" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OSe-0t-HWW">
+                                <rect key="frame" x="16" y="132" width="343" height="99"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dIs-O6-L6r" firstAttribute="trailing" secondItem="pXK-26-ek2" secondAttribute="trailingMargin" id="1Vt-FM-Zr5"/>
                             <constraint firstItem="dIs-O6-L6r" firstAttribute="leading" secondItem="San-Fv-IFh" secondAttribute="leading" id="2oK-Pl-jlE"/>
+                            <constraint firstItem="OSe-0t-HWW" firstAttribute="bottom" secondItem="San-Fv-IFh" secondAttribute="bottom" id="4Rt-fR-Twv"/>
+                            <constraint firstItem="WEs-uG-fU2" firstAttribute="leading" secondItem="dIs-O6-L6r" secondAttribute="leading" id="BkI-z7-JOi"/>
+                            <constraint firstItem="N4b-e9-uED" firstAttribute="leading" secondItem="San-Fv-IFh" secondAttribute="leading" id="BnX-oc-TZl"/>
                             <constraint firstItem="dIs-O6-L6r" firstAttribute="top" secondItem="uC9-wj-iSd" secondAttribute="bottom" constant="20" id="D4F-nt-H5d"/>
+                            <constraint firstItem="WEs-uG-fU2" firstAttribute="top" secondItem="uC9-wj-iSd" secondAttribute="bottom" constant="17" id="Fel-tZ-n95"/>
+                            <constraint firstItem="OSe-0t-HWW" firstAttribute="leading" secondItem="San-Fv-IFh" secondAttribute="leading" id="HDY-qR-L1g"/>
+                            <constraint firstItem="N4b-e9-uED" firstAttribute="trailing" secondItem="San-Fv-IFh" secondAttribute="trailing" id="HsD-WW-TVU"/>
+                            <constraint firstItem="OSe-0t-HWW" firstAttribute="top" secondItem="San-Fv-IFh" secondAttribute="top" id="KxT-Yn-ocj"/>
+                            <constraint firstItem="WEs-uG-fU2" firstAttribute="trailing" secondItem="dIs-O6-L6r" secondAttribute="trailing" id="Mw9-ql-9HA"/>
+                            <constraint firstItem="N4b-e9-uED" firstAttribute="leading" secondItem="r2Z-qt-Jw7" secondAttribute="leading" id="Pq2-U5-Kjp"/>
+                            <constraint firstItem="Yf3-W2-iCM" firstAttribute="top" secondItem="r2Z-qt-Jw7" secondAttribute="bottom" constant="10" id="Q2b-dP-Kho"/>
+                            <constraint firstItem="OSe-0t-HWW" firstAttribute="trailing" secondItem="San-Fv-IFh" secondAttribute="trailing" id="WNg-z3-s5r"/>
                             <constraint firstItem="San-Fv-IFh" firstAttribute="top" secondItem="dIs-O6-L6r" secondAttribute="bottom" constant="27" id="hCA-jX-Iec"/>
                             <constraint firstItem="dIs-O6-L6r" firstAttribute="leading" secondItem="pXK-26-ek2" secondAttribute="leadingMargin" id="iEK-p6-xOf"/>
                             <constraint firstItem="dIs-O6-L6r" firstAttribute="trailing" secondItem="San-Fv-IFh" secondAttribute="trailing" id="kBX-KF-aTl"/>
+                            <constraint firstItem="N4b-e9-uED" firstAttribute="trailing" secondItem="r2Z-qt-Jw7" secondAttribute="trailing" id="lx8-FC-ca9"/>
+                            <constraint firstItem="OSe-0t-HWW" firstAttribute="top" secondItem="WEs-uG-fU2" secondAttribute="bottom" constant="21" id="nlH-SU-Fd3"/>
+                            <constraint firstItem="r2Z-qt-Jw7" firstAttribute="top" secondItem="N4b-e9-uED" secondAttribute="bottom" constant="12" id="uNO-NS-g1T"/>
                             <constraint firstItem="Yf3-W2-iCM" firstAttribute="top" secondItem="San-Fv-IFh" secondAttribute="bottom" constant="436" id="zW7-aY-s15"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contentEditTextView" destination="OSe-0t-HWW" id="Osh-kM-2xS"/>
                         <outlet property="contentLabel" destination="San-Fv-IFh" id="mpU-qc-5wm"/>
+                        <outlet property="editButton" destination="N4b-e9-uED" id="sIK-yc-nla"/>
+                        <outlet property="titleEditTextField" destination="WEs-uG-fU2" id="V8W-z5-42s"/>
                         <outlet property="titleLabel" destination="dIs-O6-L6r" id="5vK-tb-M5v"/>
                     </connections>
                 </viewController>

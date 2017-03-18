@@ -11,11 +11,21 @@ import UIKit
 class DetailViewController: UIViewController {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var contentLabel: UILabel!
+  @IBOutlet weak var titleEditTextField: UITextField!
+  @IBOutlet weak var contentEditTextView: UITextView!
+  @IBOutlet weak var editButton: UIButton!
   
   var article: Article?
+  var isEdit: Bool = false
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.isEdit = false
+    self.titleEditTextField.isHidden = true
+    self.contentEditTextView.isHidden = true
+    self.titleEditTextField.text = self.article?.title
+    self.contentEditTextView.text = self.article?.content
     
     titleLabel.text = self.article?.title
     contentLabel.text = self.article?.content
@@ -31,10 +41,36 @@ class DetailViewController: UIViewController {
       context.delete(article)
     }
     appDelegate.saveContext()
-    
     _ = navigationController?.popViewController(animated: true)
   }
 
+  @IBAction func editButtonPressed(_ sender: Any) {
+    if isEdit { // 수정 완료
+      if let article = self.article {
+        self.update(updatedArticle: article)
+      }
+      self.isEdit = !self.isEdit
+      _ = navigationController?.popViewController(animated: true)
+    } else {  // 수정 시작
+      self.titleLabel.isHidden = true
+      self.contentLabel.isHidden = true
+      self.titleEditTextField.isHidden = false
+      self.titleEditTextField.becomeFirstResponder()
+      self.contentEditTextView.isHidden = false
+      self.editButton.setTitle("수정 완료!!", for: .normal)
+      self.isEdit = !self.isEdit
+    }
+  }
+  
+  // Updates an article
+  func update(updatedArticle: Article){
+    // TODO: update 로직 분리
+    let article = context.object(with: updatedArticle.objectID) // NSManagedObject
+    article.setValue(self.titleEditTextField.text, forKey: "title")
+    article.setValue(self.contentEditTextView.text, forKey: "content")
+    appDelegate.saveContext()
+  }
+  
   /*
   // MARK: - Navigation
 
