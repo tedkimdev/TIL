@@ -76,37 +76,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="104" id="7va-cY-gzZ" customClass="TableViewCell" customModule="diary" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="cgR-6p-H7G" rowHeight="104" style="IBUITableViewCellStyleDefault" id="7va-cY-gzZ" customClass="TableViewCell" customModule="diary" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7va-cY-gzZ" id="3nR-ub-y9U">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aL8-Lu-xsV">
-                                            <rect key="frame" x="131" y="41" width="42" height="21"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cgR-6p-H7G">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="103"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F3v-wS-lZr">
-                                            <rect key="frame" x="8" y="1" width="100" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="N4u-Bd-Hly"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="F3v-wS-lZr" firstAttribute="leading" secondItem="3nR-ub-y9U" secondAttribute="leadingMargin" id="72L-Df-caT"/>
-                                        <constraint firstItem="aL8-Lu-xsV" firstAttribute="leading" secondItem="F3v-wS-lZr" secondAttribute="trailing" constant="23" id="7MP-Rv-0Kf"/>
-                                        <constraint firstItem="aL8-Lu-xsV" firstAttribute="centerY" secondItem="F3v-wS-lZr" secondAttribute="centerY" id="PNo-v9-HhD"/>
-                                        <constraint firstItem="F3v-wS-lZr" firstAttribute="top" secondItem="3nR-ub-y9U" secondAttribute="topMargin" constant="-7" id="ZCs-iR-OGO"/>
-                                        <constraint firstItem="F3v-wS-lZr" firstAttribute="centerY" secondItem="3nR-ub-y9U" secondAttribute="centerY" id="rCZ-i9-R6F"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cellImage" destination="F3v-wS-lZr" id="Qdj-vH-8qK"/>
-                                    <outlet property="cellLabel" destination="aL8-Lu-xsV" id="Jcj-tV-QAw"/>
                                     <segue destination="HIJ-kp-e05" kind="showDetail" identifier="detail" id="j2N-02-eGd"/>
                                 </connections>
                             </tableViewCell>

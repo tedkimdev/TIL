@@ -53,7 +53,7 @@ class TableViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
 
     let article = controller.object(at: indexPath)
-    cell.cellLabel.text = article.title
+    cell.textLabel?.text = article.title
 
     return cell
   }
@@ -92,7 +92,28 @@ class TableViewController: UITableViewController {
       return true
   }
   */
-
+  
+  func fetchArticles() {
+    // TODO: should implement
+    let fetchRequest: NSFetchRequest<Article> = Article.fetchRequest()
+    let dataSort = NSSortDescriptor(key: "createdAt", ascending: false)
+    fetchRequest.sortDescriptors = [dataSort]
+    let controller = NSFetchedResultsController(
+      fetchRequest: fetchRequest,
+      managedObjectContext: context,
+      sectionNameKeyPath: nil,
+      cacheName: nil
+    )
+    self.controller = controller
+    self.controller.delegate = self
+    
+    do {
+      try controller.performFetch()
+    } catch {
+      let error = error as NSError
+      print("\(error)")
+    }
+  }
   
   // MARK: - Navigation
 
@@ -109,27 +130,6 @@ class TableViewController: UITableViewController {
       }
     }
   }
-  
-  func fetchArticles() {
-    // TODO: should implement
-    let fetchRequest: NSFetchRequest<Article> = Article.fetchRequest()
-    let dataSort = NSSortDescriptor(key: "createdAt", ascending: false)
-    fetchRequest.sortDescriptors = [dataSort]
-    let controller = NSFetchedResultsController(
-      fetchRequest: fetchRequest,
-      managedObjectContext: context,
-      sectionNameKeyPath: nil,
-      cacheName: nil
-    )
-    self.controller = controller
-    
-    do {
-      try controller.performFetch()
-    } catch {
-      let error = error as NSError
-      print("\(error)")
-    }
-  }
 
 }
 
@@ -137,5 +137,26 @@ class TableViewController: UITableViewController {
 // MARK: - NSFetchedResultsControllerDelegate
 
 extension TableViewController: NSFetchedResultsControllerDelegate {
+  
+  func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    tableView.beginUpdates()
+  }
+  
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    tableView.endUpdates()
+  }
+  
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    switch type {
+    case .insert:
+      if let indexPath = newIndexPath {
+        tableView.insertRows(at: [indexPath], with: .fade)
+      }
+      break
+      
+    default:
+      break
+    }
+  }
   
 }
