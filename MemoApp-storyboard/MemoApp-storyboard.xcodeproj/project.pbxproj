@@ -24,6 +24,7 @@
 		BDB53A5F1E866BB100B463B3 /* 08.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDB53A551E866BB100B463B3 /* 08.jpg */; };
 		BDB53A601E866BB100B463B3 /* 09.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDB53A561E866BB100B463B3 /* 09.jpg */; };
 		BDB53A611E866BB100B463B3 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDB53A571E866BB100B463B3 /* 10.jpg */; };
+		BDB53A631E86C6A300B463B3 /* MemoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB53A621E86C6A300B463B3 /* MemoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		BDB53A551E866BB100B463B3 /* 08.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 08.jpg; sourceTree = "<group>"; };
 		BDB53A561E866BB100B463B3 /* 09.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 09.jpg; sourceTree = "<group>"; };
 		BDB53A571E866BB100B463B3 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		BDB53A621E86C6A300B463B3 /* MemoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				BDB53A4B1E866A2600B463B3 /* Memo.swift */,
 				BDB53A491E86648B00B463B3 /* MemoCell.swift */,
 				BDB53A391E86630600B463B3 /* ViewController.swift */,
+				BDB53A621E86C6A300B463B3 /* MemoDetailViewController.swift */,
 				BDB53A3B1E86630600B463B3 /* Main.storyboard */,
 				BDB53A4D1E866BB100B463B3 /* Demo Images */,
 				BDB53A3E1E86630600B463B3 /* Assets.xcassets */,
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB53A631E86C6A300B463B3 /* MemoDetailViewController.swift in Sources */,
 				BDB53A3A1E86630600B463B3 /* ViewController.swift in Sources */,
 				BDB53A381E86630600B463B3 /* AppDelegate.swift in Sources */,
 				BDB53A4A1E86648B00B463B3 /* MemoCell.swift in Sources */,
@@ -353,6 +357,7 @@
 				BDB53A481E86630600B463B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

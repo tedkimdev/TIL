@@ -67,6 +67,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="phx-mt-4LE" id="Gbw-SV-hJq"/>
                                             <outlet property="textLabel" destination="pz7-to-DNK" id="mc7-TH-Y3x"/>
+                                            <segue destination="SN7-eM-xK8" kind="show" identifier="detailSegue" id="pYL-rz-HaY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -87,14 +88,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="139"/>
+            <point key="canvasLocation" x="848.79999999999995" y="138.98050974512745"/>
+        </scene>
+        <!--Memo Detail View Controller-->
+        <scene sceneID="HjC-ha-4HP">
+            <objects>
+                <viewController id="SN7-eM-xK8" customClass="MemoDetailViewController" customModule="MemoApp_storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Go4-kc-NTP"/>
+                        <viewControllerLayoutGuide type="bottom" id="vyE-Vk-672"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="43T-5M-otw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ik2-a6-9KV">
+                                <rect key="frame" x="67" y="121" width="240" height="240"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="40X-jM-O4W">
+                                <rect key="frame" x="67" y="401" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="aRz-Fm-JTE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ik2-a6-9KV" firstAttribute="centerX" secondItem="43T-5M-otw" secondAttribute="centerX" id="7cO-qX-Mhe"/>
+                            <constraint firstItem="Ik2-a6-9KV" firstAttribute="leading" secondItem="40X-jM-O4W" secondAttribute="leading" id="9Qb-qk-Y1f"/>
+                            <constraint firstItem="Ik2-a6-9KV" firstAttribute="leading" secondItem="43T-5M-otw" secondAttribute="leadingMargin" constant="51" id="Dec-qX-plJ"/>
+                            <constraint firstItem="Ik2-a6-9KV" firstAttribute="trailing" secondItem="40X-jM-O4W" secondAttribute="trailing" id="fmG-Xo-0I6"/>
+                            <constraint firstItem="40X-jM-O4W" firstAttribute="top" secondItem="Ik2-a6-9KV" secondAttribute="bottom" constant="40" id="jF3-yv-VbL"/>
+                            <constraint firstItem="Ik2-a6-9KV" firstAttribute="top" secondItem="Go4-kc-NTP" secondAttribute="bottom" constant="57" id="lHs-hc-Rag"/>
+                            <constraint firstItem="vyE-Vk-672" firstAttribute="top" secondItem="40X-jM-O4W" secondAttribute="bottom" constant="138" id="pfs-IA-In7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Ik2-a6-9KV" id="yFt-OS-RMh"/>
+                        <outlet property="textView" destination="40X-jM-O4W" id="kiw-vC-ZJD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jqZ-6h-Aiv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573.5999999999999" y="138.98050974512745"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IgC-ZU-uv2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Zb-wp-mgz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="D5H-FB-c1a">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="D5H-FB-c1a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

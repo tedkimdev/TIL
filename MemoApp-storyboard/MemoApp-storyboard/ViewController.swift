@@ -44,7 +44,19 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
-
+  
+  // MARK: Segue
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "detailSegue" {
+      let memoDetailViewController = segue.destination as! MemoDetailViewController
+      if let indexPaths = self.collectionView.indexPathsForSelectedItems {
+        let indexPath = indexPaths[0]
+        memoDetailViewController.memo = self.memos[indexPath.item]
+      }
+    }
+  }
+  
 }
 
 
@@ -66,6 +78,7 @@ extension ViewController: UICollectionViewDataSource {
     cell.configure(image: memo.image, title: memo.title)
     return cell
   }
+
 }
 
 
