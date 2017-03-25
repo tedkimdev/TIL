@@ -17,6 +17,8 @@
 		BD01E42C1E802B7200561915 /* SHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD01E4281E802B7200561915 /* SHViewController.swift */; };
 		BD01E42D1E802B7200561915 /* SHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD01E4291E802B7200561915 /* SHViewController.xib */; };
 		BD01E42F1E802B7D00561915 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD01E42E1E802B7D00561915 /* Media.xcassets */; };
+		BDB53A281E864FB600B463B3 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB53A271E864FB600B463B3 /* FilterViewController.swift */; };
+		BDB53A2A1E86555400B463B3 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB53A291E86555400B463B3 /* FilterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		BD01E4281E802B7200561915 /* SHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHViewController.swift; sourceTree = "<group>"; };
 		BD01E4291E802B7200561915 /* SHViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHViewController.xib; sourceTree = "<group>"; };
 		BD01E42E1E802B7D00561915 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		BDB53A271E864FB600B463B3 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		BDB53A291E86555400B463B3 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				BD01E4301E802B8D00561915 /* Sharaku */,
 				BD01E4141E80299200561915 /* AppDelegate.swift */,
 				BD01E4161E80299200561915 /* ViewController.swift */,
+				BDB53A271E864FB600B463B3 /* FilterViewController.swift */,
+				BDB53A291E86555400B463B3 /* FilterCell.swift */,
 				BD01E4181E80299200561915 /* Main.storyboard */,
 				BD01E41B1E80299200561915 /* Assets.xcassets */,
 				BD01E42E1E802B7D00561915 /* Media.xcassets */,
@@ -163,9 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD01E4171E80299200561915 /* ViewController.swift in Sources */,
+				BDB53A2A1E86555400B463B3 /* FilterCell.swift in Sources */,
 				BD01E4151E80299200561915 /* AppDelegate.swift in Sources */,
 				BD01E42A1E802B7200561915 /* SHCollectionViewCell.swift in Sources */,
 				BD01E42C1E802B7200561915 /* SHViewController.swift in Sources */,
+				BDB53A281E864FB600B463B3 /* FilterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +333,7 @@
 				BD01E4251E80299200561915 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

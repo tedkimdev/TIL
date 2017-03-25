@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Zb-wp-mgz">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Memo-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemoApp_storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rTR-in-Rru">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pV2-Pg-vcl">
+                                    <size key="itemSize" width="170" height="220"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memoCell" id="jQS-FF-KJL" customClass="MemoCell" customModule="MemoApp_storyboard" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="170" height="220"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="220"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="phx-mt-4LE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="170" id="hlJ-Tw-TPE"/>
+                                                        <constraint firstAttribute="height" constant="170" id="nf1-O1-E9o"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pz7-to-DNK">
+                                                    <rect key="frame" x="8" y="174" width="154" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="pz7-to-DNK" firstAttribute="leading" secondItem="jQS-FF-KJL" secondAttribute="leadingMargin" id="DzS-ji-y0B"/>
+                                            <constraint firstItem="pz7-to-DNK" firstAttribute="top" secondItem="phx-mt-4LE" secondAttribute="bottom" constant="4" id="JIR-Hc-dcx"/>
+                                            <constraint firstItem="phx-mt-4LE" firstAttribute="top" secondItem="jQS-FF-KJL" secondAttribute="top" id="MCw-59-Bvh"/>
+                                            <constraint firstItem="phx-mt-4LE" firstAttribute="leading" secondItem="jQS-FF-KJL" secondAttribute="leading" id="Rqm-75-5QV"/>
+                                            <constraint firstItem="pz7-to-DNK" firstAttribute="trailing" secondItem="jQS-FF-KJL" secondAttribute="trailingMargin" id="Y5W-ez-saC"/>
+                                            <constraint firstItem="pz7-to-DNK" firstAttribute="bottom" secondItem="jQS-FF-KJL" secondAttribute="bottomMargin" id="es4-54-scf"/>
+                                            <constraint firstAttribute="trailing" secondItem="phx-mt-4LE" secondAttribute="trailing" id="mAT-z2-P7J"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="phx-mt-4LE" id="Gbw-SV-hJq"/>
+                                            <outlet property="textLabel" destination="pz7-to-DNK" id="mc7-TH-Y3x"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rTR-in-Rru" secondAttribute="trailing" id="LD9-Px-lau"/>
+                            <constraint firstItem="rTR-in-Rru" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ReE-mJ-XT6"/>
+                            <constraint firstItem="rTR-in-Rru" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jvr-yV-zof"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rTR-in-Rru" secondAttribute="bottom" id="okb-9Q-ZFA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Memo" id="oZr-iR-1zg"/>
+                    <connections>
+                        <outlet property="collectionView" destination="rTR-in-Rru" id="pNL-yn-OQT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IgC-ZU-uv2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Zb-wp-mgz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="D5H-FB-c1a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WSK-EV-tgE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1to-RK-Xay" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
