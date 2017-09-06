@@ -1,4 +1,4 @@
-⌃ Ctrl, ⌘ Command, ⌥ Shift
+⌃ Ctrl, ⌘ Command, ⌥ Option, ⇧ Shift
 
 ⌃ ⌘ space : emoji
 
@@ -12,3 +12,8 @@ Navigators
 
 ⌘ 8 : Show breakpoint Navigator
 
+
+
+Navigation
+==========
+⇧ ⌘ O : Open Quickly
