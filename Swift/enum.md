@@ -72,3 +72,127 @@ case let .qrCode(productCode):
   print(productCode)
 }
 ```
+
+```swift
+//MARK: - Practical with StoryBoard
+
+enum Storyboard: String {
+  case profile
+  case setting
+  case newsfeed
+  
+  var identifier: String {
+    return self.rawValue
+  }
+}
+
+let profile = Storyboard.profile
+profile.identifier
+
+// API Guideline Goal
+func describeStoryboard(storyboard: Storyboard) -> String {
+  switch storyboard {
+  case .profile:
+    return "\(storyboard.identifier): Profile picture, followers"
+  case .setting:
+    return "\(storyboard.identifier): Logout, invite"
+  case .newsfeed:
+    return "\(storyboard.identifier): videos, texts"
+  }
+}
+
+describeStoryboard(storyboard: .setting)
+
+// Mutating Methods
+enum MealProcess: String {
+  case breakfast, lunch, dinner
+  
+  var description: String {
+    return self.rawValue
+  }
+  
+  mutating func nextMeal() {
+    print("Time to move on from \(self.description)")
+    
+    switch self {
+    case .breakfast:
+      self = .lunch
+      print("I had a nice lunch")
+    case .lunch:
+      self = .dinner
+      print("I had a nice dinner")
+    case .dinner:
+      self = .breakfast
+      print("I had a nice breakfast")
+    }
+  }
+}
+
+var currentMeal = MealProcess.breakfast
+currentMeal.nextMeal()
+
+// Static Methods
+
+enum AppleDevice: String {
+  case iWatch, iPhone, iMac, MacPro
+  
+  static func getProduct(name: String) -> AppleDevice? {
+    return AppleDevice(rawValue: name)
+  }
+  
+  static func getAppleDevice(enterName: String) -> AppleDevice? {
+    switch enterName {
+      case "iWatch", "iPhone", "iMac", "MacPro":
+      return getProduct(name: enterName)
+    default:
+      return nil
+    }
+  }
+  
+  init?(name: String) {
+    if name == "iWatch" {
+      self = .iWatch
+    } else {
+      return nil
+    }
+  }
+  
+}
+
+let userProduct = AppleDevice.getAppleDevice(enterName: "MacPro")
+
+AppleDevice(name: "ddd")
+AppleDevice(name: "iWatch")
+
+AppleDevice(rawValue: "zzz")
+AppleDevice(rawValue: "MacPro")
+AppleDevice(rawValue: "iWatch")
+
+enum HttpError: String {
+  case Code400 = "Bad Request"
+  case Code401 = "Unauthorized"
+  case Code402 = "Payment Required"
+  case Code403 = "Forbidden"
+  case Code404 = "Page Not Found"
+  
+  var description: String {
+    return self.rawValue
+  }
+  
+}
+
+HttpError.Code400.description
+
+//Cell Identifier
+
+enum CellType: String {
+  case ButtonValueCell
+  case UnitEditCell
+  case LabelCell
+  case ResultLabelCell
+  
+  var name: String {
+    return self.rawValue
+  }
+}
+```
