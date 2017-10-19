@@ -1,4 +1,4 @@
-Do two strings contain the same characters?
+Does one string contain another?
 ===============
 
 ```swift
