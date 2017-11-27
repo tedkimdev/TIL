@@ -37,3 +37,28 @@ wc filec.txt
 wc -c filec.txt // -l : line, -w : word, -c : character
 
 ```
+
+Listing files interlligently
+-----------------------------
+```
+ls D*
+
+ls *.md
+ls *.txt *.xml
+ls f*e*
+ls *.{txt,xml,md}
+ls *.txt *.xml *.md
+
+ls file?.txt  // ? -> single character
+//ex) filea.txt , fileb.txt
+
+//Options for listing
+ls -a // hidden files
+ls -l // -l : show a long listing
+ls -lh // -h : show file sizes in a way humans can understand
+ls -S // -S : sorts files by size
+ls -t // -t : sorts files by last modified time
+ls -lS
+ls -lrS // -r : reverse
+
+```
