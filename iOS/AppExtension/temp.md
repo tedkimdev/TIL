@@ -8,11 +8,17 @@ import MobileCoreServices
 
 class ActionViewController: UIViewController {
     
-    let sharedKey = "ImageSharePhotoKey"
+    // MARK: Constants
+    
+//    let sharedKey = "ImageSharePhotoKey"
     
     static let appGroupIdentifier = "group.com.appname"
     static let directoryName = "File Provider Storage"
     
+    
+    // MARK: Properties
+    var data: Data?
+    var fileName = ""
     
     // MARK: UI
     
@@ -25,9 +31,9 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Bundle.main.bundlePath);
+//        print(Bundle.main.bundlePath);
         let url = ActionViewController.appGroupContainerURL();
-        print(url);
+//        print(url);
         // Get the item[s] we're handling from the extension context.
         
         // For example, look for an image and place it into an image view.
@@ -38,11 +44,16 @@ class ActionViewController: UIViewController {
                 if provider.hasItemConformingToTypeIdentifier(kUTTypeImage as String) {
                     // This is an image. We'll load it, then place it in our image view.
                     weak var weakImageView = self.imageView
-                    provider.loadItem(forTypeIdentifier: kUTTypeImage as String, options: nil, completionHandler: { (imageURL, error) in
+                    provider.loadItem(forTypeIdentifier: kUTTypeImage as String, options: nil, completionHandler: { [weak self](imageURL, error) in
+                        guard let `self` = self else { return }
                         OperationQueue.main.addOperation {
                             if let strongImageView = weakImageView {
                                 if let imageURL = imageURL as? URL {
-                                    strongImageView.image = UIImage(data: try! Data(contentsOf: imageURL))
+                                    print(imageURL)
+                                    self.data = try! Data(contentsOf: imageURL)
+                                    self.fileName = imageURL.absoluteString.components(separatedBy: "/").last ?? ""
+                                    self.titleTextField.text = self.fileName
+                                    strongImageView.image = UIImage(data: self.data!)
                                 }
                             }
                         }
@@ -67,21 +78,24 @@ class ActionViewController: UIViewController {
         guard let title = titleTextField.text,
             !title.isEmpty else { return }
         
-        manageImages(title)
+        manageImages("ios_" + title)
+    }
+    
+    @IBAction func cancelButtonDidTap() {
+        dismiss(animated: true)
     }
     
     func manageImages(_ fileName: String) {
-        let content = extensionContext!.inputItems[0] as! NSExtensionItem
-        let contentType = kUTTypeImage as String
+//        let content = extensionContext!.inputItems[0] as! NSExtensionItem
+//        let contentType = kUTTypeImage as String
         
-        let rawImage = imageView.image
-        let imgData = rawImage?.pngData()
+//        let rawImage = imageView.image
         
         DispatchQueue.main.async {
 //            let userDefaults = UserDefaults(suiteName: "group.com.mirareality.example.dfdfdf")
 //            userDefaults?.set(imgData, forKey: this.sharedKey)
 //            userDefaults?.synchronize()
-            self.saveImageGroupContainer(image: rawImage, fileName)
+            self.saveImageGroupContainer(data: self.data, fileName)
             self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
         }
 //        for (index, attachment) in (content.attachments as! [NSItemProvider]).enumerated() {
@@ -129,15 +143,11 @@ class ActionViewController: UIViewController {
     }
     
 
-    func saveImageGroupContainer(image: UIImage?, _ fileName: String) {
+    func saveImageGroupContainer(data: Data?, _ fileName: String) {
         //1
         let fileManager = FileManager.default
         guard let groupURL = fileManager
             .containerURL(forSecurityApplicationGroupIdentifier: ActionViewController.appGroupIdentifier) else {
-            return
-        }
-        
-        guard let image = image else {
             return
         }
         
@@ -158,8 +168,8 @@ class ActionViewController: UIViewController {
         // Save image
         print(path)
         
-        if let data = image.pngData() {
-            let filename = pathURL.appendingPathComponent(fileName + ".png")
+        if let data = data {
+            let filename = pathURL.appendingPathComponent(fileName)
             try? data.write(to: filename)
         }
     }
@@ -190,5 +200,4 @@ class ActionViewController: UIViewController {
     }
     
 }
-
 ```
