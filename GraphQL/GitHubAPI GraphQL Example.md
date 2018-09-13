@@ -59,3 +59,37 @@ mutation RemoveStar($repositoryId: ID!) {
 }
 ```
 
+```GraphQL
+
+
+query($username: String!) {
+  repositoryOwner(login: $username) {
+      repositories(first: 10) {
+      nodes {
+        ...RepositoryInfo
+      }
+    }
+  }
+  
+  viewer {
+    name
+    starredRepositories(last: 10) {
+      nodes {
+        ...RepositoryInfo
+      }
+    }
+  }
+}
+
+fragment RepositoryInfo on Repository {
+  nameWithOwner
+  primaryLanguage {
+    name
+  }
+  releases(last: 1) {
+    nodes {
+      name
+    }
+  }
+}
+```
